@@ -120,23 +120,22 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        if (someJobs.size() >= 1) {
-            for (HashMap<String, String> someJob : someJobs) {
-                System.out.println();
-                System.out.println("*****");
-                System.out.print("\n*****\n");
+        for (HashMap<String, String> selectedJob : someJobs) {
+            String asteriks = "*****";
+            System.out.println("\n" + asteriks);
 
-                for (Map.Entry<String, String> job : someJob.entrySet()) {
-                    System.out.println(job.getKey() + ": " + job.getValue());
-                }
-                System.out.println("*****");
-                System.out.println("*****\n");
+            for (Map.Entry<String, String> entry : selectedJob.entrySet()) { //loop through hashmap and print entry set
+                String key = entry.getKey();
+                String value = entry.getValue();
 
+                System.out.println(key + ": " + value);
+                //assign astericks to a variable and then have one outside of the loop and one at the after the loop
             }
-        } else {
-            System.out.println("No Results");
+
+            System.out.println(asteriks);
+        }
+        if (someJobs.isEmpty()) {
             System.out.print("No Results");
         }
-
     }
 }

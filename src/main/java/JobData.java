@@ -101,10 +101,11 @@ public class JobData {
         // TODO - implement this method
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
-            for (String field : row.keySet()) {
-                if (row.get(field).toLowerCase().contains(value.toLowerCase())) {
-                    jobs.add(row);
-                    break;
+            for (String aJob : row.values()) {
+                if (aJob.toLowerCase().contains(value.toLowerCase())) {
+                    if (!jobs.contains(value)) {
+                        jobs.add(row);
+                    }
                 }
             }
         }
